@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,10 +20,10 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- CSS EXTERNO -->
+    <!-- CSS -->
     <link rel="stylesheet" href="estilos.css">
-</head>
 
+</head>
 
 <body>
 
@@ -47,11 +48,10 @@
     </nav>
 
 
-
     <!-- HERO -->
-    <section id="inicio" class="hero container">
+    <section id="inicio" class="hero">
 
-        <div class="hero-grid">
+        <div class="container hero-grid">
 
             <div class="hero-text">
 
@@ -94,7 +94,7 @@
 
 
     <!-- SERVICIOS -->
-    <section id="servicios" class="services">
+    <section id="servicios">
 
         <div class="container">
 
@@ -102,31 +102,55 @@
                 Nuestros Servicios
             </h2>
 
-
+            <!-- CONTENEDOR DE TARJETAS (Box Model) -->
             <div class="services-grid">
 
                 <div class="service-card">
+
                     <i class="fas fa-laptop-medical"></i>
+
                     <h3>Mantenimiento</h3>
-                    <p>Optimización y limpieza de hardware.</p>
+
+                    <p>
+                        Optimización y limpieza de hardware.
+                    </p>
+
                 </div>
 
                 <div class="service-card">
+
                     <i class="fas fa-compact-disc"></i>
+
                     <h3>Sistemas</h3>
-                    <p>Instalación de Windows y Linux.</p>
+
+                    <p>
+                        Instalación de Windows y Linux.
+                    </p>
+
                 </div>
 
                 <div class="service-card">
+
                     <i class="fas fa-tools"></i>
+
                     <h3>Soporte</h3>
-                    <p>Diagnóstico y reparación de fallas.</p>
+
+                    <p>
+                        Diagnóstico y reparación de fallas.
+                    </p>
+
                 </div>
 
                 <div class="service-card">
+
                     <i class="fas fa-paint-brush"></i>
+
                     <h3>Diseño</h3>
-                    <p>Identidad visual y branding.</p>
+
+                    <p>
+                        Identidad visual y branding.
+                    </p>
+
                 </div>
 
             </div>
@@ -138,25 +162,29 @@
 
 
     <!-- SOBRE NOSOTROS -->
-    <section id="sobre" class="about container">
+    <section id="sobre">
 
-        <h2 class="section-title">
-            Sobre Nosotros
-        </h2>
+        <div class="container about">
 
-        <p>
-            KeyTech Studio es un proyecto orientado al desarrollo de soluciones
-            tecnológicas, soporte técnico y optimización de equipos de cómputo.
-            Nuestro objetivo es ofrecer servicios eficientes que mejoren el
-            rendimiento y la experiencia tecnológica de los usuarios.
-        </p>
+            <h2 class="section-title">
+                Sobre Nosotros
+            </h2>
+
+            <p>
+                KeyTech Studio es un proyecto orientado al desarrollo de soluciones
+                tecnológicas, soporte técnico y optimización de equipos de cómputo.
+                Nuestro objetivo es ofrecer servicios eficientes que mejoren el
+                rendimiento y la experiencia tecnológica de los usuarios.
+            </p>
+
+        </div>
 
     </section>
 
 
 
     <!-- CONTACTO -->
-    <section id="contacto" class="contact-section">
+    <section id="contacto">
 
         <div class="container">
 
@@ -164,19 +192,27 @@
                 Solicita un Servicio
             </h2>
 
+            <!-- FORMULARIO (Aplicación del Box Model) -->
             <form class="contact-form">
 
                 <div class="form-group">
+
                     <label>Nombre completo</label>
+
                     <input type="text" placeholder="Ingresa tu nombre">
+
                 </div>
 
                 <div class="form-group">
+
                     <label>Correo electrónico</label>
+
                     <input type="email" placeholder="ejemplo@email.com">
+
                 </div>
 
                 <div class="form-group">
+
                     <label>Servicio requerido</label>
 
                     <select>
@@ -188,8 +224,11 @@
                 </div>
 
                 <div class="form-group">
+
                     <label>Descripción</label>
+
                     <textarea rows="4"></textarea>
+
                 </div>
 
                 <button class="btn btn-primary">
