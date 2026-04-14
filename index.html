@@ -1,77 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyTech Studio | Portafolio Profesional</title>
-    <meta name="description" content="Servicios técnicos, mantenimiento de computadoras y diseño gráfico profesional.">
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="estilos.css">
-
-    <style>
-        /* MODO CLARO */
-        body.light-mode {
-            --bg-dark: #f1f5f9;
-            --surface: #ffffff;
-            --text-main: #0f172a;
-            --text-dim: #475569;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-        }
-        body.light-mode .navbar {
-            background: rgba(241, 245, 249, 0.95);
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-        body.light-mode .service-card {
-            background: #ffffff;
-            border-color: rgba(0,0,0,0.08);
-        }
-
-        /* Botón toggle modo */
-        #toggleModo {
-            background: transparent;
-            border: 1px solid #334155;
-            color: var(--text-main);
-            padding: 6px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            margin-left: 1rem;
-        }
-
-        /* Estilos específicos para la Galería (Actividad 03) */
-        .project-card.hidden {
-            display: none;
-        }
-        .gallery-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        .project-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-        /* Re-utilización de tus estilos existentes */
-        #sobre { background: #0b1120; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-        .about-grid img { width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } }
-    </style>
 </head>
-
 <body>
-
     <nav class="navbar">
         <div class="container nav-content">
             <div class="logo">Key<span>Tech</span> Studio</div>
@@ -81,7 +18,7 @@
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <button id="toggleModo">🌙 Modo</button>
+            <button id="toggleModo">Modo</button>
         </div>
     </nav>
 
@@ -92,7 +29,7 @@
                 <p>Mantenimiento especializado e instalación de sistemas para empresas y particulares.</p>
                 <div class="hero-actions">
                     <a href="#servicios" class="btn btn-primary">Ver servicios</a>
-                    <button id="btnSaludo" class="btn btn-outline">¿Quién soy?</button>
+                    <button id="btnSaludo" class="btn btn-outline">Identidad</button>
                 </div>
                 <p id="mensajeDinamico" style="margin-top:1rem; color: var(--primary); font-weight:600; min-height:1.5rem;"></p>
             </div>
@@ -102,46 +39,72 @@
         </div>
     </section>
 
-    <section id="proyectos" style="padding: 100px 0;">
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-laptop-medical"></i>
+                    <h3>Mantenimiento</h3>
+                    <p>Limpieza y optimización de hardware.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-compact-disc"></i>
+                    <h3>Sistemas</h3>
+                    <p>Instalación y configuración de SO.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Soporte</h3>
+                    <p>Diagnóstico de fallas técnicas.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Diseño</h3>
+                    <p>Identidad visual y logotipos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" style="padding: 100px 0; background: #0f172a;">
         <div class="container">
             <h2 class="section-title">Galería de Proyectos</h2>
-            
-            <div class="gallery-controls">
-                <button id="btn-filter-all" class="btn btn-outline">Todos</button>
-                <button id="btn-filter-sys" class="btn btn-outline">Sistemas</button>
-                <button id="btn-update-feat" class="btn btn-primary">Cambiar Destacado</button>
+            <div class="hero-actions filtros">
+                <button id="btnFiltroTodos" class="btn btn-outline">Todos</button>
+                <button id="btnFiltroSistemas" class="btn btn-outline">Sistemas</button>
+                <button id="btnModificarCard" class="btn btn-primary">Actualizar Nodo</button>
             </div>
-
-            <div id="contenedor-galeria" class="services-grid">
-                <div class="service-card project-card" data-category="systems">
-                    <img src="https://via.placeholder.com/300x200/1e293b/22d3ee?text=Consultec" alt="Consultec" id="img-featured" class="project-img">
-                    <h3 id="title-featured">Consultec</h3>
-                    <p>Gestión de pacientes y citas médicas (Node.js/MariaDB).</p>
+            <div class="services-grid" id="galeriaGrid">
+                <div class="service-card proy-card" data-tipo="sistemas">
+                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=Consultec" alt="Consultec" class="proyecto-img" id="imgDinamica">
+                    <h3 id="tituloDinamico">Consultec</h3>
+                    <p id="descDinamica">Sistema dental con Node.js y MariaDB.</p>
                 </div>
-                <div class="service-card project-card" data-category="web">
-                    <img src="https://via.placeholder.com/300x200/1e293b/22d3ee?text=KeyTech" alt="Web" class="project-img">
+                <div class="service-card proy-card" data-tipo="web">
+                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=KeyTech" alt="Web" class="proyecto-img">
                     <h3>KeyTech Studio</h3>
-                    <p>Portafolio profesional desarrollado con HTML5/CSS3/JS.</p>
+                    <p>Portafolio profesional con JS.</p>
                 </div>
-                <div class="service-card project-card" data-category="systems">
-                    <img src="https://via.placeholder.com/300x200/1e293b/22d3ee?text=Haskell" alt="Sistemas" class="project-img">
-                    <h3>Cálculo Geométrico</h3>
-                    <p>Backend funcional desarrollado con Haskell y Scotty.</p>
+                <div class="service-card proy-card" data-tipo="sistemas">
+                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=Haskell" alt="Haskell" class="proyecto-img">
+                    <h3>Haskell Calc</h3>
+                    <p>Analizador de geometría funcional.</p>
                 </div>
-                <div class="service-card project-card" data-category="web">
-                    <img src="https://via.placeholder.com/300x200/1e293b/22d3ee?text=Dashboard" alt="Web" class="project-img">
-                    <h3>Admin Panel</h3>
-                    <p>Interfaz administrativa para gestión de inventarios.</p>
+                <div class="service-card proy-card" data-tipo="web">
+                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=Shop" alt="E-commerce" class="proyecto-img">
+                    <h3>E-commerce</h3>
+                    <p>Tienda con carrito dinámico.</p>
                 </div>
-                <div class="service-card project-card" data-category="systems">
-                    <img src="https://via.placeholder.com/300x200/1e293b/22d3ee?text=Inventory" alt="Sistemas" class="project-img">
-                    <h3>Gestor de Almacén</h3>
-                    <p>Control de stock con MariaDB y procedimientos almacenados.</p>
+                <div class="service-card proy-card" data-tipo="sistemas">
+                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=Admin" alt="Sistemas" class="proyecto-img">
+                    <h3>Admin DB</h3>
+                    <p>Gestor de inventarios.</p>
                 </div>
-                <div class="service-card project-card" data-category="web">
-                    <img src="https://via.placeholder.com/300x200/1e293b/22d3ee?text=API" alt="Web" class="project-img">
-                    <h3>API Rest</h3>
-                    <p>Servicios web con autenticación JWT y Express.</p>
+                <div class="service-card proy-card" data-tipo="web">
+                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=UI" alt="Diseño" class="proyecto-img">
+                    <h3>Brand UI</h3>
+                    <p>Diseño de interfaces modernas.</p>
                 </div>
             </div>
         </div>
@@ -152,13 +115,44 @@
             <h2 class="section-title">Sobre Nosotros</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <h3>Ingeniería en Sistemas</h3>
-                    <p>Proyecto personal enfocado en soluciones tecnológicas accesibles y de calidad para la región.</p>
+                    <h3>¿Quiénes somos?</h3>
+                    <p>KeyTech Studio es un proyecto personal de Gustavo Calzada, estudiante de ISC en el ITSX.</p>
                 </div>
                 <img src="https://webescuela.com/wp-content/uploads/2020/08/desarrollador-web.png.webp" alt="Programación">
             </div>
         </div>
     </section>
+
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre">
+                    <span class="error-msg" id="err-nombre">Ingrese su nombre.</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input type="email" id="email" placeholder="correo@ejemplo.com">
+                    <span class="error-msg" id="err-email">Correo no válido.</span>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje-contacto">Mensaje</label>
+                    <textarea id="mensaje-contacto" rows="4"></textarea>
+                    <span class="error-msg" id="err-mensaje">Escriba algo.</span>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <p id="contactMessage" style="margin-top: 15px; text-align: center; font-weight: bold;"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2026 KeyTech Studio | ITSX Ingeniería en Sistemas</p>
+        </div>
+    </footer>
 
     <script src="app.js"></script>
 </body>
