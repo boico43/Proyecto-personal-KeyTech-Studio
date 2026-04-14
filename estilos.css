@@ -1,17 +1,5 @@
 /* ===================================================
    APLICACIÓN DEL MODELO DE CAJA (CSS BOX MODEL)
-
-   Cada elemento HTML se representa como una caja
-   compuesta por:
-
-   content → contenido del elemento
-   padding → espacio interno
-   border  → borde del elemento
-   margin  → espacio externo
-
-   También se utilizan propiedades como:
-   width, height y box-sizing para controlar
-   el tamaño total de los elementos.
 =================================================== */
 
 :root {
@@ -23,19 +11,13 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 1. SELECTOR UNIVERSAL */
 * { 
     margin: 0; 
     padding: 0; 
-
-    /* box-sizing permite que el padding y border
-       se incluyan dentro del tamaño total del elemento */
     box-sizing: border-box; 
-
     font-family: 'Inter', sans-serif; 
 }
 
-/* 2. SELECTOR DE ETIQUETA */
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
@@ -43,36 +25,21 @@ body {
     scroll-behavior: smooth;
 }
 
-section { 
-    padding: 100px 0; 
-}
-
-/* 3. SELECTOR DE CLASE */
+section { padding: 100px 0; }
 
 .container { 
-    
-    /* CONTENT SIZE */
     max-width: 1200px;
-
-    /* MARGIN centra el contenedor */
     margin: 0 auto;
-
-    /* PADDING espacio interno */
     padding: 0 2rem; 
 }
 
 .navbar {
-
     padding: 1.2rem 0;
     background: rgba(15, 23, 42, 0.95);
-
     backdrop-filter: blur(10px);
-
     position: sticky;
     top: 0;
     z-index: 1000;
-
-    /* BORDER delimita el elemento */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -88,9 +55,7 @@ section {
     letter-spacing: -0.5px; 
 }
 
-.logo span { 
-    color: var(--primary); 
-}
+.logo span { color: var(--primary); }
 
 .nav-links { 
     display: flex; 
@@ -98,46 +63,30 @@ section {
     gap: 2.5rem; 
 }
 
-/* 4. SELECTOR DESCENDENTE */
 .nav-links a {
-
     text-decoration: none;
     color: var(--text-main);
     font-weight: 500;
     font-size: 0.95rem;
-
     position: relative;
-
     transition: var(--transition);
 }
 
-/* 5. PSEUDOCLASE */
 .nav-links a::after {
-
     content: '';
     position: absolute;
-
     width: 0;
     height: 2px;
-
     left: 0;
     bottom: -4px;
-
     background: var(--primary);
-
     transition: width 0.3s;
 }
 
-.nav-links a:hover::after { 
-    width: 100%; 
-}
-
-.nav-links a:hover { 
-    color: var(--primary); 
-}
+.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover { color: var(--primary); }
 
 /* HERO */
-
 .hero { 
     min-height: 85vh; 
     display: flex; 
@@ -159,9 +108,7 @@ section {
     letter-spacing: -1px; 
 }
 
-.hero-text h1 span { 
-    color: var(--primary); 
-}
+.hero-text h1 span { color: var(--primary); }
 
 .hero-text p { 
     font-size: 1.15rem; 
@@ -176,18 +123,12 @@ section {
 }
 
 .btn {
-
-    /* PADDING controla el espacio interno del botón */
     padding: 14px 32px;
-
     border-radius: 8px;
     font-weight: 600;
-
     cursor: pointer;
     border: none;
-
     text-decoration: none;
-
     transition: var(--transition);
 }
 
@@ -213,98 +154,56 @@ section {
 }
 
 .hero-image img { 
-
     width: 100%;
-
     border-radius: 12px;
-
     box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
 }
 
 /* TITULOS DE SECCIÓN */
-
 .section-title {
-
     text-align: center;
-
     font-size: 2.5rem;
-
     font-weight: 800;
-
     margin-bottom: 4rem;
-
     position: relative;
 }
 
 .section-title::after {
-
     content: '';
-
     display: block;
-
     width: 50px;
     height: 4px;
-
     background: var(--primary);
-
     margin: 15px auto 0;
-
     border-radius: 2px;
 }
 
-/* SELECTOR DE ID */
-
-#servicios { 
-    background: #0b1120; 
-}
-
-#contacto { 
-    background: #0b1120; 
-}
+#servicios { background: #0b1120; }
+#contacto { background: #0b1120; }
 
 .services-grid {
-
     display: grid;
-
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
     gap: 2rem;
-
     align-items: stretch;
 }
 
-/* TARJETAS - EJEMPLO CLARO DEL BOX MODEL */
-
+/* TARJETAS */
 .service-card {
-
-    /* CONTENT SIZE */
     width: 100%;
     min-height: 220px;
-
-    /* PADDING espacio interno */
     padding: 3rem 2rem;
-
-    /* MARGIN separación entre tarjetas */
     margin: 0;
-
-    /* BORDER límite visual */
     border: 1px solid rgba(255,255,255,0.05);
-
     background: var(--surface);
-
     border-radius: 12px;
-
     text-align: center;
-
     transition: var(--transition);
 }
 
 .service-card:hover { 
-
     transform: translateY(-5px);
-
     border-color: #334155;
-
     box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
 }
 
@@ -324,33 +223,13 @@ section {
     font-size: 0.95rem; 
 }
 
-/* SOBRE NOSOTROS */
-
-.about p { 
-    max-width: 700px; 
-    margin: auto; 
-    text-align: center; 
-    color: var(--text-dim); 
-    font-size: 1.1rem; 
-}
-
 /* FORMULARIO */
-
 .contact-form {
-
     max-width: 600px;
-
-    /* MARGIN centra el formulario */
     margin: auto;
-
-    /* PADDING espacio interno */
     padding: 3rem;
-
-    /* BORDER delimita el formulario */
     border: 1px solid rgba(255,255,255,0.05);
-
     border-radius: 12px;
-
     background: var(--surface);
 }
 
@@ -370,21 +249,13 @@ section {
 .form-group input,
 .form-group textarea,
 .form-group select {
-
     width: 100%;
-
     padding: 0.9rem;
-
     border-radius: 6px;
-
     border: 1px solid #334155;
-
     background: #0f172a;
-
     color: var(--text-main);
-
     font-size: 1rem;
-
     transition: border-color 0.2s;
 }
 
@@ -402,7 +273,6 @@ section {
 }
 
 /* FOOTER */
-
 .footer { 
     padding: 60px 0 20px; 
     border-top: 1px solid #1e293b; 
@@ -414,10 +284,7 @@ section {
     align-items: center; 
 }
 
-.footer-social { 
-    display: flex; 
-    gap: 1.5rem; 
-}
+.footer-social { display: flex; gap: 1.5rem; }
 
 .footer-social a { 
     color: var(--text-dim); 
@@ -425,10 +292,7 @@ section {
     transition: color 0.2s; 
 }
 
-.footer-social a:hover { 
-    color: var(--primary); 
-}
-
+.footer-social a:hover { color: var(--primary); }
 .copyright { 
     text-align: center; 
     margin-top: 4rem; 
@@ -437,37 +301,92 @@ section {
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 900px) {
-
-    .hero-grid { 
-        grid-template-columns: 1fr; 
-        text-align: center; 
-    }
-
-    .hero-text h1 { 
-        font-size: 2.8rem; 
-    }
-
-    .hero-text p { 
-        margin: 0 auto 2rem; 
-    }
-
-    .hero-actions { 
-        justify-content: center; 
-    }
-
-    .nav-links { 
-        display: none; 
-    }
-
-    .contact-form { 
-        padding: 2rem; 
-    }
-
-    .footer-grid { 
-        flex-direction: column; 
-        gap: 1.5rem; 
-        text-align: center; 
-    }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-text h1 { font-size: 2.8rem; }
+    .hero-text p { margin: 0 auto 2rem; }
+    .hero-actions { justify-content: center; }
+    .nav-links { display: none; }
+    .contact-form { padding: 2rem; }
+    .footer-grid { flex-direction: column; gap: 1.5rem; text-align: center; }
 }
+
+/* ===================================================
+   NUEVOS ESTILOS - INTEGRACIÓN Y MODO CLARO
+=================================================== */
+
+/* MODO CLARO */
+body.light-mode {
+    --bg-dark: #f1f5f9;
+    --surface: #ffffff;
+    --text-main: #0f172a;
+    --text-dim: #475569;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+}
+body.light-mode .navbar {
+    background: rgba(241, 245, 249, 0.95);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+body.light-mode .service-card {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.08);
+}
+body.light-mode .contact-form {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.08);
+}
+body.light-mode .form-group input,
+body.light-mode .form-group textarea,
+body.light-mode .form-group select {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    color: #0f172a;
+}
+body.light-mode #sobre { background: #e2e8f0; }
+body.light-mode #servicios { background: #e9eef5; }
+body.light-mode #contacto { background: #e2e8f0; }
+body.light-mode .footer { border-top-color: #cbd5e1; }
+
+/* Botón toggle modo */
+#toggleModo {
+    background: transparent;
+    border: 1px solid #334155;
+    color: var(--text-main);
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin-left: 1rem;
+}
+#toggleModo:hover { border-color: var(--primary); color: var(--primary); }
+
+/* Validaciones y Galería */
+.error-msg {
+    color: #f87171;
+    font-size: 0.82rem;
+    margin-top: 4px;
+    display: none;
+}
+.error-msg.visible { display: block; }
+.form-group input.error,
+.form-group textarea.error { border-color: #f87171; }
+
+.oculto { display: none !important; }
+.proy-card { transition: var(--transition); }
+.hero-actions.filtros {
+    justify-content: center;
+    margin-bottom: 3rem;
+    gap: 1rem;
+    display: flex;
+}
+.proyecto-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+#sobre { background: #0b1120; }
