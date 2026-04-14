@@ -23,11 +23,11 @@
         </div>
     </nav>
 
-    <section id="inicio" class="hero">
+    <header id="inicio" class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
                 <h1>Soluciones <span>Tecnológicas</span> a tu medida</h1>
-                <p>Mantenimiento especializado e instalación de sistemas para empresas y particulares.</p>
+                <p>Mantenimiento especializado, instalación de sistemas y desarrollo web profesional.</p>
                 <div class="hero-actions">
                     <a href="#servicios" class="btn btn-primary">Ver servicios</a>
                     <button id="btnSaludo" class="btn btn-outline">Identidad</button>
@@ -38,7 +38,7 @@
                 <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Hardware">
             </div>
         </div>
-    </section>
+    </header>
 
     <section id="servicios">
         <div class="container">
@@ -68,44 +68,46 @@
         </div>
     </section>
 
-    <section id="proyectos">
+    <section id="proyectos" class="section-bg-alt">
         <div class="container">
             <h2 class="section-title">Galería de Proyectos</h2>
+            
             <div class="hero-actions filtros">
                 <button id="btnFiltroTodos" class="btn btn-outline">Todos</button>
                 <button id="btnFiltroSistemas" class="btn btn-outline">Sistemas</button>
                 <button id="btnModificarCard" class="btn btn-primary">Actualizar Nodo</button>
             </div>
+
             <div class="services-grid" id="galeriaGrid">
                 <div class="service-card proy-card" data-tipo="sistemas">
-                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=Consultec" alt="Consultec" class="proyecto-img" id="imgDinamica">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80" alt="Consultec" class="proyecto-img" id="imgDinamica">
                     <h3 id="tituloDinamico">Consultec</h3>
-                    <p id="descDinamica">Sistema dental con Node.js y MariaDB.</p>
+                    <p id="descDinamica">Gestión de pacientes y citas con Node.js y MariaDB.</p>
                 </div>
                 <div class="service-card proy-card" data-tipo="web">
-                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=KeyTech" alt="Web" class="proyecto-img">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&q=80" alt="KeyTech Studio" class="proyecto-img">
                     <h3>KeyTech Studio</h3>
-                    <p>Portafolio profesional con JS.</p>
+                    <p>Portafolio profesional con manipulación dinámica del DOM.</p>
                 </div>
                 <div class="service-card proy-card" data-tipo="sistemas">
-                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=Haskell" alt="Haskell" class="proyecto-img">
-                    <h3>Haskell Calc</h3>
-                    <p>Analizador de geometría funcional.</p>
+                    <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?w=500&q=80" alt="Haskell" class="proyecto-img">
+                    <h3>Cálculo Geométrico</h3>
+                    <p>Microservicio funcional desarrollado en Haskell y Scotty.</p>
                 </div>
                 <div class="service-card proy-card" data-tipo="web">
-                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=Shop" alt="E-commerce" class="proyecto-img">
-                    <h3>E-commerce</h3>
-                    <p>Tienda con carrito dinámico.</p>
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=500&q=80" alt="Tráfico" class="proyecto-img">
+                    <h3>SATX</h3>
+                    <p>Sistema web de alertas de tráfico en tiempo real para Xalapa.</p>
                 </div>
                 <div class="service-card proy-card" data-tipo="sistemas">
-                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=Admin" alt="Sistemas" class="proyecto-img">
-                    <h3>Admin DB</h3>
-                    <p>Gestor de inventarios.</p>
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&q=80" alt="Seguridad" class="proyecto-img">
+                    <h3>API Auth</h3>
+                    <p>Sistema de autenticación JWT y gestión de usuarios en MariaDB.</p>
                 </div>
-                <div class="service-card proy-card" data-tipo="web">
-                    <img src="https://via.placeholder.com/300x180/1e293b/22d3ee?text=UI" alt="Diseño" class="proyecto-img">
-                    <h3>Brand UI</h3>
-                    <p>Diseño de interfaces modernas.</p>
+                <div class="service-card proy-card" data-tipo="sistemas">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80" alt="Reportes" class="proyecto-img">
+                    <h3>Módulo Reportes</h3>
+                    <p>Generación de estadísticas e ingresos para sistemas médicos.</p>
                 </div>
             </div>
         </div>
@@ -141,7 +143,7 @@
                 <div class="form-group">
                     <label for="mensaje-contacto">Mensaje</label>
                     <textarea id="mensaje-contacto" rows="4"></textarea>
-                    <span class="error-msg" id="err-mensaje">Escriba algo.</span>
+                    <span class="error-msg" id="err-mensaje">Escriba un mensaje.</span>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
                 <p id="contactMessage" style="margin-top: 15px; text-align: center; font-weight: bold;"></p>
