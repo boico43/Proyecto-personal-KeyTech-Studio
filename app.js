@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnToggle) {
         btnToggle.addEventListener("click", () => {
             document.body.classList.toggle("light-mode");
-            const esModoClaro = document.body.classList.contains("light-mode");
-            btnToggle.textContent = esModoClaro ? "Modo Oscuro" : "Modo Claro";
+            const esClaro = document.body.classList.contains("light-mode");
+            btnToggle.textContent = esClaro ? "Modo Oscuro" : "Modo Claro";
         });
     }
 
@@ -25,11 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnSistemas) {
         btnSistemas.addEventListener("click", () => {
             cards.forEach(card => {
-                if (card.dataset.tipo !== "sistemas") {
-                    card.classList.add("oculto");
-                } else {
-                    card.classList.remove("oculto");
-                }
+                // Manipulación del DOM para ocultar/mostrar por categoría
+                card.classList.toggle("oculto", card.dataset.tipo !== "sistemas");
             });
         });
     }
@@ -40,9 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. ACTUALIZACIÓN DINÁMICA DE ELEMENTOS
+    // 3. ACTUALIZACIÓN DINÁMICA DE TEXTO E IMAGEN
     const btnModificar = document.getElementById("btnModificarCard");
-    
     if (btnModificar) {
         btnModificar.addEventListener("click", () => {
             const titulo = document.getElementById("tituloDinamico");
@@ -50,88 +46,49 @@ document.addEventListener("DOMContentLoaded", () => {
             const img = document.getElementById("imgDinamica");
 
             if (titulo && desc && img) {
+                // Modificación de propiedades del DOM sin recargar la página
                 titulo.textContent = "Residencia Profesional 2026";
                 titulo.style.color = "var(--primary)";
-                desc.textContent = "Inicio del desarrollo de sistemas a nivel profesional.";
-                img.src = "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=180&fit=crop";
+                desc.textContent = "Inicio del desarrollo de sistemas médicos a nivel profesional.";
+                img.src = "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&q=80";
             }
         });
     }
 
-    // 4. LÓGICA DE IDENTIDAD Y SALUDO
+    // 4. LÓGICA DE IDENTIDAD
     const btnSaludo = document.getElementById("btnSaludo");
     const mensajeDinamico = document.getElementById("mensajeDinamico");
-    let saludoMostrado = false;
-
     if (btnSaludo && mensajeDinamico) {
         btnSaludo.addEventListener("click", () => {
-            if (!saludoMostrado) {
-                mensajeDinamico.innerHTML = "Soy Gustavo Calzada García, estudiante de ISC en el ITSX.";
-                btnSaludo.textContent = "Ocultar";
-                saludoMostrado = true;
-            } else {
-                mensajeDinamico.innerHTML = "";
-                btnSaludo.textContent = "Identidad";
-                saludoMostrado = false;
-            }
+            mensajeDinamico.innerHTML = "Soy Gustavo Calzada García, estudiante de ISC en el ITSX.";
         });
     }
 
     // 5. VALIDACIÓN ROBUSTA DE FORMULARIO
     const contactForm = document.getElementById("contactForm");
-    
     if (contactForm) {
-        contactForm.addEventListener("submit", function(e) {
+        contactForm.addEventListener("submit", (e) => {
             e.preventDefault();
             
-            // Campos de texto
-            const inputNombre = document.getElementById("nombre");
-            const inputEmail = document.getElementById("email");
-            const inputMensaje = document.getElementById("mensaje-contacto");
-            
-            // Mensajes de error
-            const errNombre = document.getElementById("err-nombre");
-            const errEmail = document.getElementById("err-email");
-            const errMensaje = document.getElementById("err-mensaje");
-            const msgBox = document.getElementById("contactMessage");
-            
+            const campos = [
+                { input: document.getElementById("nombre"), error: document.getElementById("err-nombre") },
+                { input: document.getElementById("email"), error: document.getElementById("err-email") },
+                { input: document.getElementById("mensaje-contacto"), error: document.getElementById("err-mensaje") }
+            ];
+
             let esValido = true;
-            
-            // Validar Nombre
-            if (inputNombre.value.trim() === "") {
-                inputNombre.classList.add("error");
-                errNombre.classList.add("visible");
-                esValido = false;
-            } else {
-                inputNombre.classList.remove("error");
-                errNombre.classList.remove("visible");
-            }
 
-            // Validar Correo
-            if (!inputEmail.value.includes("@") || inputEmail.value.trim() === "") {
-                inputEmail.classList.add("error");
-                errEmail.classList.add("visible");
-                esValido = false;
-            } else {
-                inputEmail.classList.remove("error");
-                errEmail.classList.remove("visible");
-            }
+            campos.forEach(campo => {
+                const vacio = campo.input.value.trim() === "";
+                campo.input.classList.toggle("error", vacio);
+                campo.error.classList.toggle("visible", vacio);
+                if (vacio) esValido = false;
+            });
 
-            // Validar Mensaje
-            if (inputMensaje.value.trim() === "") {
-                inputMensaje.classList.add("error");
-                errMensaje.classList.add("visible");
-                esValido = false;
-            } else {
-                inputMensaje.classList.remove("error");
-                errMensaje.classList.remove("visible");
-            }
-            
-            // Si todo está correcto, simular envío
             if (esValido) {
+                const msgBox = document.getElementById("contactMessage");
                 msgBox.style.color = "var(--primary)";
-                msgBox.innerText = `Mensaje enviado correctamente. Gracias, ${inputNombre.value.trim()}.`;
-                
+                msgBox.innerText = "Mensaje enviado correctamente.";
                 setTimeout(() => {
                     contactForm.reset();
                     msgBox.innerText = "";
