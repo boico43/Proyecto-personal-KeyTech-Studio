@@ -7,9 +7,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    // ==========================================
     // 1. GESTIÓN DE TEMA (MODO CLARO/OSCURO)
-    // ==========================================
     const btnToggle = document.getElementById("toggleModo");
     if (btnToggle) {
         btnToggle.addEventListener("click", () => {
@@ -19,18 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================
     // 2. FILTRADO DE PROYECTOS (MOSTRAR/OCULTAR)
-    // ==========================================
     const btnTodos = document.getElementById("btnFiltroTodos");
     const btnSistemas = document.getElementById("btnFiltroSistemas");
-    // Uso de querySelectorAll para obtener todos los nodos de las tarjetas [cite: 10]
     const cards = document.querySelectorAll(".proy-card");
 
     if (btnSistemas) {
         btnSistemas.addEventListener("click", () => {
             cards.forEach(card => {
-                // Se evalúa el atributo data-tipo para filtrar el DOM [cite: 8]
                 if (card.dataset.tipo !== "sistemas") {
                     card.classList.add("oculto");
                 } else {
@@ -42,26 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnTodos) {
         btnTodos.addEventListener("click", () => {
-            cards.forEach(card => {
-                // Se remueve la clase para restaurar la visibilidad original [cite: 8]
-                card.classList.remove("oculto");
-            });
+            cards.forEach(card => card.classList.remove("oculto"));
         });
     }
 
-    // ==========================================
     // 3. ACTUALIZACIÓN DINÁMICA DE ELEMENTOS
-    // ==========================================
     const btnModificar = document.getElementById("btnModificarCard");
     
     if (btnModificar) {
         btnModificar.addEventListener("click", () => {
-            // Selectores específicos mediante getElementById [cite: 10]
             const titulo = document.getElementById("tituloDinamico");
             const desc = document.getElementById("descDinamica");
             const img = document.getElementById("imgDinamica");
 
-            // Modificación de nodos de texto y atributos sin recargar la página [cite: 8, 9]
             if (titulo && desc && img) {
                 titulo.textContent = "Residencia Profesional 2026";
                 titulo.style.color = "var(--primary)";
@@ -71,9 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================
     // 4. LÓGICA DE IDENTIDAD Y SALUDO
-    // ==========================================
     const btnSaludo = document.getElementById("btnSaludo");
     const mensajeDinamico = document.getElementById("mensajeDinamico");
     let saludoMostrado = false;
@@ -92,37 +77,65 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================
-    // 5. VALIDACIÓN BÁSICA DE FORMULARIO
-    // ==========================================
+    // 5. VALIDACIÓN ROBUSTA DE FORMULARIO
     const contactForm = document.getElementById("contactForm");
     
     if (contactForm) {
         contactForm.addEventListener("submit", function(e) {
             e.preventDefault();
             
+            // Campos de texto
             const inputNombre = document.getElementById("nombre");
+            const inputEmail = document.getElementById("email");
+            const inputMensaje = document.getElementById("mensaje-contacto");
+            
+            // Mensajes de error
+            const errNombre = document.getElementById("err-nombre");
+            const errEmail = document.getElementById("err-email");
+            const errMensaje = document.getElementById("err-mensaje");
             const msgBox = document.getElementById("contactMessage");
-            const msgError = document.getElementById("err-nombre");
             
-            const nombre = inputNombre ? inputNombre.value.trim() : "";
+            let esValido = true;
             
-            if (nombre === "") {
-                if (inputNombre) inputNombre.classList.add("error");
-                if (msgError) msgError.classList.add("visible");
+            // Validar Nombre
+            if (inputNombre.value.trim() === "") {
+                inputNombre.classList.add("error");
+                errNombre.classList.add("visible");
+                esValido = false;
             } else {
-                if (inputNombre) inputNombre.classList.remove("error");
-                if (msgError) msgError.classList.remove("visible");
+                inputNombre.classList.remove("error");
+                errNombre.classList.remove("visible");
+            }
+
+            // Validar Correo
+            if (!inputEmail.value.includes("@") || inputEmail.value.trim() === "") {
+                inputEmail.classList.add("error");
+                errEmail.classList.add("visible");
+                esValido = false;
+            } else {
+                inputEmail.classList.remove("error");
+                errEmail.classList.remove("visible");
+            }
+
+            // Validar Mensaje
+            if (inputMensaje.value.trim() === "") {
+                inputMensaje.classList.add("error");
+                errMensaje.classList.add("visible");
+                esValido = false;
+            } else {
+                inputMensaje.classList.remove("error");
+                errMensaje.classList.remove("visible");
+            }
+            
+            // Si todo está correcto, simular envío
+            if (esValido) {
+                msgBox.style.color = "var(--primary)";
+                msgBox.innerText = `Mensaje enviado correctamente. Gracias, ${inputNombre.value.trim()}.`;
                 
-                if (msgBox) {
-                    msgBox.style.color = "var(--primary)";
-                    msgBox.innerText = `Mensaje enviado correctamente. Gracias, ${nombre}.`;
-                    
-                    setTimeout(() => {
-                        contactForm.reset();
-                        msgBox.innerText = "";
-                    }, 3000);
-                }
+                setTimeout(() => {
+                    contactForm.reset();
+                    msgBox.innerText = "";
+                }, 3000);
             }
         });
     }
