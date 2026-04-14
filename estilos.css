@@ -86,7 +86,6 @@ section { padding: 100px 0; }
 .nav-links a:hover::after { width: 100%; }
 .nav-links a:hover { color: var(--primary); }
 
-/* HERO */
 .hero { 
     min-height: 85vh; 
     display: flex; 
@@ -117,10 +116,7 @@ section { padding: 100px 0; }
     max-width: 500px; 
 }
 
-.hero-actions { 
-    display: flex; 
-    gap: 1rem; 
-}
+.hero-actions { display: flex; gap: 1rem; }
 
 .btn {
     padding: 14px 32px;
@@ -132,26 +128,11 @@ section { padding: 100px 0; }
     transition: var(--transition);
 }
 
-.btn-primary { 
-    background: var(--primary); 
-    color: #0f172a; 
-}
+.btn-primary { background: var(--primary); color: #0f172a; }
+.btn-primary:hover { background: #1cb8d1; transform: translateY(-2px); }
 
-.btn-primary:hover { 
-    background: #1cb8d1; 
-    transform: translateY(-2px); 
-}
-
-.btn-outline { 
-    border: 1px solid #334155; 
-    color: var(--text-main); 
-    background: transparent; 
-}
-
-.btn-outline:hover { 
-    background: #1e293b; 
-    border-color: #475569; 
-}
+.btn-outline { border: 1px solid #334155; color: var(--text-main); background: transparent; }
+.btn-outline:hover { background: #1e293b; border-color: #475569; }
 
 .hero-image img { 
     width: 100%;
@@ -159,7 +140,6 @@ section { padding: 100px 0; }
     box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
 }
 
-/* TITULOS DE SECCIÓN */
 .section-title {
     text-align: center;
     font-size: 2.5rem;
@@ -178,8 +158,11 @@ section { padding: 100px 0; }
     border-radius: 2px;
 }
 
+/* Fondos por sección para Modo Oscuro */
 #servicios { background: #0b1120; }
-#contacto { background: #0b1120; }
+#proyectos { background: #0f172a; }
+#sobre { background: #0b1120; }
+#contacto { background: #0f172a; }
 
 .services-grid {
     display: grid;
@@ -188,12 +171,10 @@ section { padding: 100px 0; }
     align-items: stretch;
 }
 
-/* TARJETAS */
 .service-card {
     width: 100%;
     min-height: 220px;
     padding: 3rem 2rem;
-    margin: 0;
     border: 1px solid rgba(255,255,255,0.05);
     background: var(--surface);
     border-radius: 12px;
@@ -207,23 +188,10 @@ section { padding: 100px 0; }
     box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
 }
 
-.service-card i { 
-    font-size: 2.2rem; 
-    color: var(--primary); 
-    margin-bottom: 1.5rem; 
-}
+.service-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem; }
+.service-card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
+.service-card p { color: var(--text-dim); font-size: 0.95rem; }
 
-.service-card h3 { 
-    font-size: 1.3rem; 
-    margin-bottom: 1rem; 
-}
-
-.service-card p { 
-    color: var(--text-dim); 
-    font-size: 0.95rem; 
-}
-
-/* FORMULARIO */
 .contact-form {
     max-width: 600px;
     margin: auto;
@@ -233,18 +201,8 @@ section { padding: 100px 0; }
     background: var(--surface);
 }
 
-.form-group { 
-    display: flex; 
-    flex-direction: column; 
-    margin-bottom: 1.5rem; 
-}
-
-.form-group label { 
-    margin-bottom: 0.5rem; 
-    font-weight: 500; 
-    font-size: 0.95rem; 
-    color: #cbd5e1; 
-}
+.form-group { display: flex; flex-direction: column; margin-bottom: 1.5rem; }
+.form-group label { margin-bottom: 0.5rem; font-weight: 500; font-size: 0.95rem; color: #cbd5e1; }
 
 .form-group input,
 .form-group textarea,
@@ -260,47 +218,16 @@ section { padding: 100px 0; }
 }
 
 .form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus { 
-    outline: none; 
-    border-color: var(--primary); 
-}
+.form-group textarea:focus { outline: none; border-color: var(--primary); }
+.contact-form .btn-primary { width: 100%; margin-top: 1rem; padding: 1rem; }
 
-.contact-form .btn-primary { 
-    width: 100%; 
-    margin-top: 1rem; 
-    padding: 1rem; 
-}
-
-/* FOOTER */
-.footer { 
-    padding: 60px 0 20px; 
-    border-top: 1px solid #1e293b; 
-}
-
-.footer-grid { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
-
+.footer { padding: 60px 0 20px; border-top: 1px solid #1e293b; }
+.footer-grid { display: flex; justify-content: space-between; align-items: center; }
 .footer-social { display: flex; gap: 1.5rem; }
-
-.footer-social a { 
-    color: var(--text-dim); 
-    font-size: 1.4rem; 
-    transition: color 0.2s; 
-}
-
+.footer-social a { color: var(--text-dim); font-size: 1.4rem; transition: color 0.2s; }
 .footer-social a:hover { color: var(--primary); }
-.copyright { 
-    text-align: center; 
-    margin-top: 4rem; 
-    font-size: 0.85rem; 
-    color: #475569; 
-}
+.copyright { text-align: center; margin-top: 4rem; font-size: 0.85rem; color: #475569; }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; text-align: center; }
     .hero-text h1 { font-size: 2.8rem; }
@@ -312,43 +239,31 @@ section { padding: 100px 0; }
 }
 
 /* ===================================================
-   NUEVOS ESTILOS - INTEGRACIÓN Y MODO CLARO
+   MODO CLARO Y ESTILOS DE ACTIVIDAD 03
 =================================================== */
 
-/* MODO CLARO */
 body.light-mode {
-    --bg-dark: #f1f5f9;
+    --bg-dark: #f8fafc;
     --surface: #ffffff;
     --text-main: #0f172a;
     --text-dim: #475569;
     background-color: var(--bg-dark);
     color: var(--text-main);
 }
-body.light-mode .navbar {
-    background: rgba(241, 245, 249, 0.95);
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-body.light-mode .service-card {
-    background: #ffffff;
-    border-color: rgba(0,0,0,0.08);
-}
-body.light-mode .contact-form {
-    background: #ffffff;
-    border-color: rgba(0,0,0,0.08);
-}
+
+body.light-mode .navbar { background: rgba(248, 250, 252, 0.95); border-bottom: 1px solid #e2e8f0; }
+body.light-mode .service-card { background: #ffffff; border-color: #e2e8f0; }
+body.light-mode .contact-form { background: #ffffff; border-color: #e2e8f0; }
 body.light-mode .form-group input,
-body.light-mode .form-group textarea,
-body.light-mode .form-group select {
-    background: #f8fafc;
-    border-color: #cbd5e1;
-    color: #0f172a;
-}
+body.light-mode .form-group textarea { background: #f1f5f9; border-color: #cbd5e1; color: #0f172a; }
+
+/* Fondos por sección para Modo Claro */
+body.light-mode #servicios { background: #e2e8f0; }
+body.light-mode #proyectos { background: #f1f5f9; }
 body.light-mode #sobre { background: #e2e8f0; }
-body.light-mode #servicios { background: #e9eef5; }
-body.light-mode #contacto { background: #e2e8f0; }
+body.light-mode #contacto { background: #f1f5f9; }
 body.light-mode .footer { border-top-color: #cbd5e1; }
 
-/* Botón toggle modo */
 #toggleModo {
     background: transparent;
     border: 1px solid #334155;
@@ -361,32 +276,15 @@ body.light-mode .footer { border-top-color: #cbd5e1; }
     transition: all 0.3s;
     margin-left: 1rem;
 }
+
 #toggleModo:hover { border-color: var(--primary); color: var(--primary); }
 
-/* Validaciones y Galería */
-.error-msg {
-    color: #f87171;
-    font-size: 0.82rem;
-    margin-top: 4px;
-    display: none;
-}
+.error-msg { color: #ef4444; font-size: 0.82rem; margin-top: 4px; display: none; }
 .error-msg.visible { display: block; }
 .form-group input.error,
-.form-group textarea.error { border-color: #f87171; }
+.form-group textarea.error { border-color: #ef4444; }
 
 .oculto { display: none !important; }
 .proy-card { transition: var(--transition); }
-.hero-actions.filtros {
-    justify-content: center;
-    margin-bottom: 3rem;
-    gap: 1rem;
-    display: flex;
-}
-.proyecto-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-#sobre { background: #0b1120; }
+.hero-actions.filtros { justify-content: center; margin-bottom: 3rem; gap: 1rem; display: flex; }
+.proyecto-img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
