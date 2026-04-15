@@ -5,108 +5,58 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    // ==========================================
-    // 1. GESTIÓN DE TEMA (MODO CLARO/OSCURO)
-    // ==========================================
+    // 1. MODO CLARO/OSCURO
     const btnToggle = document.getElementById("toggleModo");
     if (btnToggle) {
         btnToggle.addEventListener("click", () => {
             document.body.classList.toggle("light-mode");
-            const esClaro = document.body.classList.contains("light-mode");
-            btnToggle.textContent = esClaro ? "Modo Oscuro" : "Modo Claro";
+            btnToggle.textContent = document.body.classList.contains("light-mode") ? "Modo Oscuro" : "Modo Claro";
         });
     }
 
-    // ==========================================
-    // 2. FILTRADO DINÁMICO (Frontend, Backend, Fullstack)
-    // ==========================================
+    // 2. FILTRADO DE PROYECTOS (INCISO A)
     const botonesFiltro = document.querySelectorAll(".btn-filtro");
     const cards = document.querySelectorAll(".proy-card");
 
-    if (botonesFiltro.length > 0 && cards.length > 0) {
-        botonesFiltro.forEach(boton => {
-            boton.addEventListener("click", () => {
-                const categoria = boton.dataset.filter;
-                
-                cards.forEach(card => {
-                    // Si el botón es "todos" o el atributo data-tipo de la tarjeta coincide, se muestra.
-                    if (categoria === "todos" || card.dataset.tipo === categoria) {
-                        card.classList.remove("oculto");
-                    } else {
-                        // De lo contrario, se oculta agregando la clase CSS.
-                        card.classList.add("oculto");
-                    }
-                });
+    botonesFiltro.forEach(boton => {
+        boton.addEventListener("click", () => {
+            const categoria = boton.dataset.filter;
+            cards.forEach(card => {
+                if (categoria === "todos" || card.dataset.tipo === categoria) {
+                    card.classList.remove("oculto");
+                } else {
+                    card.classList.add("oculto");
+                }
             });
         });
-    }
+    });
 
-    // ==========================================
-    // 3. LÓGICA DE IDENTIDAD Y SALUDO
-    // ==========================================
+    // 3. SALUDO INICIAL
     const btnSaludo = document.getElementById("btnSaludo");
     const mensajeDinamico = document.getElementById("mensajeDinamico");
-    let saludoMostrado = false;
-
     if (btnSaludo && mensajeDinamico) {
         btnSaludo.addEventListener("click", () => {
-            if (!saludoMostrado) {
-                mensajeDinamico.innerHTML = "Soy Gustavo Calzada García, estudiante de ISC en el ITSX.";
-                btnSaludo.textContent = "Ocultar";
-                saludoMostrado = true;
-            } else {
-                mensajeDinamico.innerHTML = "";
-                btnSaludo.textContent = "¿Quién soy?";
-                saludoMostrado = false;
-            }
+            mensajeDinamico.innerHTML = "Soy Gustavo Calzada García, estudiante de ISC en el ITSX.";
         });
     }
 
-    // ==========================================
-    // 4. VALIDACIÓN DE FORMULARIO DE CONTACTO
-    // ==========================================
-    const contactForm = document.getElementById("contactForm");
+    // 4. LÓGICA DEL BOTÓN PRESIONAME (INCISO B)
+    const btnPresioname = document.getElementById("btnPresioname");
+    const textoDinamico = document.getElementById("textoDinamico");
     
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            
-            const campos = [
-                { input: document.getElementById("nombre"), error: document.getElementById("err-nombre") },
-                { input: document.getElementById("email"), error: document.getElementById("err-email") },
-                { input: document.getElementById("mensaje-contacto"), error: document.getElementById("err-mensaje") }
-            ];
+    const frases = [
+        "¡Sistemas es la mejor carrera!",
+        "Compilado con éxito.",
+        "En mi máquina sí funciona.",
+        "El DOM ha sido manipulado.",
+        "¡Lograste la Actividad 03!"
+    ];
 
-            let esValido = true;
-
-            // Validación de campos vacíos
-            campos.forEach(campo => {
-                if (campo.input) {
-                    const vacio = campo.input.value.trim() === "";
-                    if (vacio) {
-                        campo.input.classList.add("error");
-                        if (campo.error) campo.error.classList.add("visible");
-                        esValido = false;
-                    } else {
-                        campo.input.classList.remove("error");
-                        if (campo.error) campo.error.classList.remove("visible");
-                    }
-                }
-            });
-
-            // Simulación de envío exitoso
-            if (esValido) {
-                const msgBox = document.getElementById("contactMessage");
-                if (msgBox) {
-                    msgBox.style.color = "var(--primary)";
-                    msgBox.innerText = "Mensaje enviado correctamente.";
-                    
-                    setTimeout(() => {
-                        contactForm.reset();
-                        msgBox.innerText = "";
-                    }, 3000);
-                }
-            }
+    if (btnPresioname && textoDinamico) {
+        btnPresioname.addEventListener("click", () => {
+            const azar = Math.floor(Math.random() * frases.length);
+            // Manipulación de nodo P mediante textContent
+            textoDinamico.textContent = frases[azar];
         });
     }
 });
