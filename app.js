@@ -5,7 +5,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. MODO CLARO / OSCURO
+    // 1. MODO CLARO/OSCURO
     const btnToggle = document.getElementById("toggleModo");
     if (btnToggle) {
         btnToggle.addEventListener("click", () => {
@@ -23,54 +23,40 @@ document.addEventListener("DOMContentLoaded", () => {
             const categoria = boton.dataset.filter;
             cards.forEach(card => {
                 if (categoria === "todos" || card.dataset.tipo === categoria) {
-                    card.style.display = "block"; // Muestra el nodo
+                    card.style.display = "block";
                 } else {
-                    card.style.display = "none";  // Oculta el nodo
+                    card.style.display = "none";
                 }
             });
         });
     });
 
-    // 3. SALUDO DINÁMICO
+    // 3. SALUDO INICIAL
     const btnSaludo = document.getElementById("btnSaludo");
     const mensajeDinamico = document.getElementById("mensajeDinamico");
     if (btnSaludo && mensajeDinamico) {
         btnSaludo.addEventListener("click", () => {
-            mensajeDinamico.innerHTML = "¡Hola! Soy Gustavo Calzada García, estudiante de ISC en el ITSX.";
+            mensajeDinamico.innerHTML = "Soy Gustavo Calzada García, estudiante de ISC en el ITSX.";
         });
     }
 
-    // 4. LÓGICA DEL BOTÓN PRESIONAME (INCISO B)
+    // 4. LÓGICA DEL BOTÓN PRESIONAME CON FRASES MOTIVADORAS (INCISO B)
     const btnPresioname = document.getElementById("btnPresioname");
     const textoDinamico = document.getElementById("textoDinamico");
     
-    const frases = [
-        "¡Sistemas es la mejor carrera!",
-        "Compilado con éxito. 🚀",
-        "En mi máquina sí funciona. 💻",
-        "El DOM ha sido manipulado correctamente. ✨",
-        "¡Lograste la Actividad 03! 🔥"
+    const frasesMotivadoras = [
+        "«El único modo de hacer un gran trabajo es amar lo que haces.» — Steve Jobs",
+        "«La tecnología es mejor cuando une a la gente.» — Matt Mullenweg",
+        "«No te detengas hasta que estés orgulloso de tu esfuerzo.»",
+        "«La innovación es lo que distingue a un líder de un seguidor.» — Steve Jobs",
+        "«Tu capacidad de aprender es tu activo más valioso.»"
     ];
 
     if (btnPresioname && textoDinamico) {
         btnPresioname.addEventListener("click", () => {
-            const azar = Math.floor(Math.random() * frases.length);
-            // Actualización del contenido del nodo mediante textContent
-            textoDinamico.textContent = frases[azar];
-        });
-    }
-
-    // 5. MANIPULACIÓN DEL FORMULARIO
-    const contactForm = document.getElementById("contactForm");
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const nombre = document.getElementById("nombre").value;
-            const msgBox = document.getElementById("contactMessage");
-            if (nombre && msgBox) {
-                msgBox.innerText = `¡Gracias ${nombre}! Mensaje enviado correctamente.`;
-                contactForm.reset();
-            }
+            const azar = Math.floor(Math.random() * frasesMotivadoras.length);
+            // Manipulación del DOM mediante textContent
+            textoDinamico.textContent = frasesMotivadoras[azar];
         });
     }
 });
