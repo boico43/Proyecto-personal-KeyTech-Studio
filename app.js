@@ -1,6 +1,11 @@
+/**
+ * KEYTECH STUDIO - MANIPULACIÓN DEL DOM
+ * Alumno: Gustavo Calzada García
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. MODO CLARO/OSCURO
+    // 1. MODO CLARO / OSCURO
     const btnToggle = document.getElementById("toggleModo");
     if (btnToggle) {
         btnToggle.addEventListener("click", () => {
@@ -18,50 +23,52 @@ document.addEventListener("DOMContentLoaded", () => {
             const categoria = boton.dataset.filter;
             cards.forEach(card => {
                 if (categoria === "todos" || card.dataset.tipo === categoria) {
-                    card.classList.remove("oculto");
+                    card.style.display = "block"; // Muestra el nodo
                 } else {
-                    card.classList.add("oculto");
+                    card.style.display = "none";  // Oculta el nodo
                 }
             });
         });
     });
 
-    // 3. SALUDO INICIAL (MANIPULACIÓN DOM)
+    // 3. SALUDO DINÁMICO
     const btnSaludo = document.getElementById("btnSaludo");
     const mensajeDinamico = document.getElementById("mensajeDinamico");
     if (btnSaludo && mensajeDinamico) {
         btnSaludo.addEventListener("click", () => {
-            mensajeDinamico.innerHTML = "Soy Gustavo Calzada García, estudiante de ISC en el ITSX.";
+            mensajeDinamico.innerHTML = "¡Hola! Soy Gustavo Calzada García, estudiante de ISC en el ITSX.";
         });
     }
 
     // 4. LÓGICA DEL BOTÓN PRESIONAME (INCISO B)
     const btnPresioname = document.getElementById("btnPresioname");
     const textoDinamico = document.getElementById("textoDinamico");
+    
     const frases = [
         "¡Sistemas es la mejor carrera!",
-        "Compilado con éxito.",
-        "En mi máquina sí funciona.",
-        "El DOM ha sido manipulado.",
-        "¡Lograste la Actividad 03!"
+        "Compilado con éxito. 🚀",
+        "En mi máquina sí funciona. 💻",
+        "El DOM ha sido manipulado correctamente. ✨",
+        "¡Lograste la Actividad 03! 🔥"
     ];
 
     if (btnPresioname && textoDinamico) {
         btnPresioname.addEventListener("click", () => {
             const azar = Math.floor(Math.random() * frases.length);
+            // Actualización del contenido del nodo mediante textContent
             textoDinamico.textContent = frases[azar];
         });
     }
 
-    // 5. VALIDACIÓN FORMULARIO (DOM)
+    // 5. MANIPULACIÓN DEL FORMULARIO
     const contactForm = document.getElementById("contactForm");
     if (contactForm) {
         contactForm.addEventListener("submit", (e) => {
             e.preventDefault();
             const nombre = document.getElementById("nombre").value;
-            if (nombre) {
-                const msgBox = document.getElementById("contactMessage");
-                msgBox.innerText = `¡Gracias ${nombre}, mensaje enviado!`;
+            const msgBox = document.getElementById("contactMessage");
+            if (nombre && msgBox) {
+                msgBox.innerText = `¡Gracias ${nombre}! Mensaje enviado correctamente.`;
                 contactForm.reset();
             }
         });
