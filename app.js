@@ -46,18 +46,34 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const frasesMotivadoras = [
         "El único modo de hacer un gran trabajo es amar lo que haces. — Steve Jobs",
-        "«La tecnología es mejor cuando une a la gente. — Matt Mullenweg",
+        "La tecnología es mejor cuando une a la gente. — Matt Mullenweg",
         "No te detengas hasta que estés orgulloso de tu esfuerzo.",
         "La innovación es lo que distingue a un líder de un seguidor. — Steve Jobs",
-        "Tu capacidad de aprender es tu activo más valioso."
-        "Recuerda utilizar ;."
+        "Tu capacidad de aprender es tu activo más valioso.",
+        "Recuerda utilizar ; al final de tus sentencias."
     ];
 
     if (btnPresioname && textoDinamico) {
         btnPresioname.addEventListener("click", () => {
             const azar = Math.floor(Math.random() * frasesMotivadoras.length);
-            // Manipulación del DOM mediante textContent
             textoDinamico.textContent = frasesMotivadoras[azar];
+        });
+    }
+
+    // 5. VALIDACIÓN DE FORMULARIO
+    const contactForm = document.getElementById("contactForm");
+    const contactMessage = document.getElementById("contactMessage");
+
+    if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById("nombre").value;
+            if (nombre.trim() !== "") {
+                contactMessage.textContent = `¡Gracias ${nombre}, mensaje enviado!`;
+                contactForm.reset();
+            } else {
+                contactMessage.textContent = "Por favor, escribe tu nombre.";
+            }
         });
     }
 });
