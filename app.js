@@ -45,11 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const textoDinamico = document.getElementById("textoDinamico");
     
     const frasesMotivadoras = [
-        "«El único modo de hacer un gran trabajo es amar lo que haces.» — Steve Jobs",
-        "«La tecnología es mejor cuando une a la gente.» — Matt Mullenweg",
-        "«No te detengas hasta que estés orgulloso de tu esfuerzo.»",
-        "«La innovación es lo que distingue a un líder de un seguidor.» — Steve Jobs",
-        "«Tu capacidad de aprender es tu activo más valioso.»"
+        "El único modo de hacer un gran trabajo es amar lo que haces. — Steve Jobs",
+        "«La tecnología es mejor cuando une a la gente. — Matt Mullenweg",
+        "No te detengas hasta que estés orgulloso de tu esfuerzo.",
+        "La innovación es lo que distingue a un líder de un seguidor. — Steve Jobs",
+        "Tu capacidad de aprender es tu activo más valioso."
+        "Recuerda utilizar ;."
     ];
 
     if (btnPresioname && textoDinamico) {
