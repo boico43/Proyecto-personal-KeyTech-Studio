@@ -91,20 +91,30 @@
         </div>
     </section>
 
-    <section id="sobre">
-        <div class="container">
-            <h2 class="section-title">Sobre Nosotros</h2>
-            <p>KeyTech Studio es un proyecto personal de Gustavo Calzada, estudiante del ITSX.</p>
+    <section id="sobre" style="padding: 80px 0;">
+        <div class="container" style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">Sobre Nosotros</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">Innovación desde el ITSX</h3>
+                    <p style="margin-bottom: 15px;">KeyTech Studio es un proyecto personal de <strong>Keydash Gustavo Calzada</strong>, estudiante de Ingeniería en Sistemas Computacionales.</p>
+                    <p>Nos enfocamos en el desarrollo de software robusto y el soporte técnico especializado, aplicando estándares profesionales en cada línea de código.</p>
+                </div>
+                <img src="https://webescuela.com/wp-content/uploads/2020/08/desarrollador-web.png.webp" alt="Dev" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            </div>
         </div>
     </section>
 
-    <section id="contacto">
-        <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <form id="contactForm" class="contact-form">
-                <input type="text" id="nombre" placeholder="Nombre completo">
-                <button type="submit" class="btn btn-primary">Enviar</button>
-                <p id="contactMessage" style="margin-top: 15px; text-align: center;"></p>
+    <section id="contacto" class="section-bg-alt" style="padding: 80px 0;">
+        <div class="container" style="max-width: 600px; margin: 0 auto;">
+            <h2 class="section-title" style="text-align: center;">Contacto</h2>
+            <form id="contactForm" class="contact-form" style="background: rgba(255,255,255,0.03); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px;">Nombre completo</label>
+                    <input type="text" id="nombre" placeholder="Escribe tu nombre" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #334155; background: transparent; color: white;">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+                <p id="contactMessage" style="margin-top: 15px; text-align: center; font-weight: bold; color: var(--primary);"></p>
             </form>
         </div>
     </section>
