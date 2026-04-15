@@ -1,8 +1,6 @@
 /**
- * KEYTECH STUDIO - MANIPULACIÓN DEL DOM
- * Archivo: app.js
+ * KEYTECH STUDIO - LÓGICA DE MANIPULACIÓN DEL DOM
  * Alumno: Gustavo Calzada García
- * Institución: ITSX
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,27 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. FILTRADO DE PROYECTOS (MOSTRAR/OCULTAR)
-    const btnTodos = document.getElementById("btnFiltroTodos");
-    const btnSistemas = document.getElementById("btnFiltroSistemas");
+    // 2. FILTRADO DINÁMICO (Frontend, Backend, Fullstack)
+    const botonesFiltro = document.querySelectorAll(".btn-filtro");
     const cards = document.querySelectorAll(".proy-card");
 
-    if (btnSistemas) {
-        btnSistemas.addEventListener("click", () => {
+    botonesFiltro.forEach(boton => {
+        boton.addEventListener("click", () => {
+            const categoria = boton.dataset.filter;
+            
             cards.forEach(card => {
-                // Manipulación del DOM para ocultar/mostrar por categoría
-                card.classList.toggle("oculto", card.dataset.tipo !== "sistemas");
+                if (categoria === "todos" || card.dataset.tipo === categoria) {
+                    card.classList.remove("oculto");
+                } else {
+                    card.classList.add("oculto");
+                }
             });
         });
-    }
+    });
 
-    if (btnTodos) {
-        btnTodos.addEventListener("click", () => {
-            cards.forEach(card => card.classList.remove("oculto"));
-        });
-    }
-
-    // 3. ACTUALIZACIÓN DINÁMICA DE TEXTO E IMAGEN
+    // 3. ACTUALIZACIÓN DINÁMICA DE NODO (Requisito B de la rúbrica)
     const btnModificar = document.getElementById("btnModificarCard");
     if (btnModificar) {
         btnModificar.addEventListener("click", () => {
@@ -46,10 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const img = document.getElementById("imgDinamica");
 
             if (titulo && desc && img) {
-                // Modificación de propiedades del DOM sin recargar la página
                 titulo.textContent = "Residencia Profesional 2026";
                 titulo.style.color = "var(--primary)";
-                desc.textContent = "Inicio del desarrollo de sistemas médicos a nivel profesional.";
+                desc.textContent = "Inicio del desarrollo de sistemas complejos a nivel profesional.";
                 img.src = "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&q=80";
             }
         });
@@ -60,11 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const mensajeDinamico = document.getElementById("mensajeDinamico");
     if (btnSaludo && mensajeDinamico) {
         btnSaludo.addEventListener("click", () => {
-            mensajeDinamico.innerHTML = "Soy Gustavo Calzada García, estudiante de ISC en el ITSX.";
+            mensajeDinamico.innerHTML = "Soy Gustavo Calzada García, estudiante de Ingeniería en Sistemas en el ITSX.";
         });
     }
 
-    // 5. VALIDACIÓN ROBUSTA DE FORMULARIO
+    // 5. VALIDACIÓN DE FORMULARIO
     const contactForm = document.getElementById("contactForm");
     if (contactForm) {
         contactForm.addEventListener("submit", (e) => {
