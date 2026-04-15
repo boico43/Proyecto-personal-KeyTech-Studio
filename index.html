@@ -40,6 +40,34 @@
         </div>
     </header>
 
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-laptop-medical"></i>
+                    <h3>Mantenimiento</h3>
+                    <p>Limpieza y optimización de hardware.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-compact-disc"></i>
+                    <h3>Sistemas</h3>
+                    <p>Instalación y configuración de SO.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Soporte</h3>
+                    <p>Diagnóstico de fallas técnicas.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Diseño</h3>
+                    <p>Identidad visual y logotipos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="proyectos" class="section-bg-alt">
         <div class="container">
             <h2 class="section-title">Galería de Proyectos</h2>
@@ -88,6 +116,44 @@
                 <button id="btnPresioname" class="btn btn-primary">Presioname</button>
                 <p id="textoDinamico" style="margin-top: 20px; font-weight: 600; color: var(--primary); font-size: 1.2rem; min-height: 1.5rem;"></p>
             </div>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>¿Quiénes somos?</h3>
+                    <p>KeyTech Studio es un proyecto personal de Keydash Gustavo Calzada, estudiante de ISC en el ITSX.</p>
+                </div>
+                <img src="https://webescuela.com/wp-content/uploads/2020/08/desarrollador-web.png.webp" alt="Programación">
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre">
+                    <span class="error-msg" id="err-nombre">Ingrese su nombre.</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input type="email" id="email" placeholder="correo@ejemplo.com">
+                    <span class="error-msg" id="err-email">Correo no válido.</span>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje-contacto">Mensaje</label>
+                    <textarea id="mensaje-contacto" rows="4"></textarea>
+                    <span class="error-msg" id="err-mensaje">Escriba un mensaje.</span>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <p id="contactMessage" style="margin-top: 15px; text-align: center; font-weight: bold;"></p>
+            </form>
         </div>
     </section>
 
