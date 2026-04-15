@@ -27,7 +27,7 @@
         <div class="container hero-grid">
             <div class="hero-text">
                 <h1>Soluciones <span>Tecnológicas</span> a tu medida</h1>
-                <p>Mantenimiento especializado e instalación de sistemas con arquitectura profesional.</p>
+                <p>Mantenimiento especializado, instalación de sistemas y desarrollo de software con arquitectura robusta.</p>
                 <div class="hero-actions">
                     <a href="#servicios" class="btn btn-primary">Ver servicios</a>
                     <button id="btnSaludo" class="btn btn-outline">¿Quién soy?</button>
@@ -40,6 +40,34 @@
         </div>
     </header>
 
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-laptop-medical"></i>
+                    <h3>Mantenimiento</h3>
+                    <p>Limpieza y optimización de hardware.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-compact-disc"></i>
+                    <h3>Sistemas</h3>
+                    <p>Instalación y configuración de SO.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Soporte</h3>
+                    <p>Diagnóstico de fallas técnicas.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Diseño</h3>
+                    <p>Identidad visual y logotipos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="proyectos" class="section-bg-alt">
         <div class="container">
             <h2 class="section-title">Galería de Proyectos</h2>
@@ -49,45 +77,59 @@
                 <button class="btn btn-outline btn-filtro" data-filter="frontend">Frontend</button>
                 <button class="btn btn-outline btn-filtro" data-filter="backend">Backend</button>
                 <button class="btn btn-outline btn-filtro" data-filter="fullstack">Fullstack</button>
-                <button id="btnModificarCard" class="btn btn-primary">Actualizar Nodo</button>
             </div>
 
             <div class="services-grid" id="galeriaGrid">
-                <div class="service-card proy-card" data-tipo="fullstack">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80" alt="Consultec" class="proyecto-img" id="imgDinamica">
-                    <h3 id="tituloDinamico">Consultec</h3>
-                    <p id="descDinamica">Gestión de pacientes y citas con Node.js y MariaDB.</p>
-                </div>
-                
-                <div class="service-card proy-card" data-tipo="frontend">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&q=80" alt="KeyTech Studio" class="proyecto-img">
-                    <h3>KeyTech Studio</h3>
-                    <p>Portafolio profesional con manipulación dinámica del DOM.</p>
-                </div>
-                
-                <div class="service-card proy-card" data-tipo="backend">
-                    <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?w=500&q=80" alt="Haskell" class="proyecto-img">
-                    <h3>Cálculo Geométrico</h3>
-                    <p>Microservicio funcional desarrollado en Haskell y Scotty.</p>
-                </div>
                 
                 <div class="service-card proy-card" data-tipo="fullstack">
                     <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=500&q=80" alt="SATX" class="proyecto-img">
                     <h3>SATX</h3>
-                    <p>Sistema web de alertas de tráfico en tiempo real para Xalapa.</p>
+                    <p>Desarrollo fullstack de un sistema de alertas de tráfico en tiempo real para Xalapa.</p>
                 </div>
-                
+
+                <div class="service-card proy-card" data-tipo="backend">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80" alt="Consultec" class="proyecto-img">
+                    <h3>Consultec</h3>
+                    <p>Desarrollo principal de Backend y Bases de Datos (Node.js/MariaDB) con apoyo auxiliar en Frontend.</p>
+                </div>
+
                 <div class="service-card proy-card" data-tipo="backend">
                     <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&q=80" alt="API Auth" class="proyecto-img">
                     <h3>API Auth</h3>
-                    <p>Autenticación JWT y gestión de usuarios en MariaDB.</p>
+                    <p>Desarrollo íntegro de un sistema de autenticación JWT y gestión segura de usuarios.</p>
+                </div>
+
+                <div class="service-card proy-card" data-tipo="backend">
+                    <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?w=500&q=80" alt="Haskell" class="proyecto-img">
+                    <h3>Cálculo Geométrico</h3>
+                    <p>Desarrollo de lógica funcional y microservicio matemático utilizando Haskell y Scotty.</p>
+                </div>
+
+                <div class="service-card proy-card" data-tipo="frontend">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&q=80" alt="KeyTech Studio" class="proyecto-img">
+                    <h3>KeyTech Studio</h3>
+                    <p>Portafolio profesional enfocado en el diseño y manipulación dinámica del DOM con Vanilla JS.</p>
                 </div>
                 
                 <div class="service-card proy-card" data-tipo="backend">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80" alt="Reportes" class="proyecto-img">
                     <h3>Módulo Reportes</h3>
-                    <p>Procesamiento de datos estadísticos para sistemas médicos.</p>
+                    <p>Procesamiento backend de datos estadísticos e ingresos para sistemas de gestión médica.</p>
                 </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>¿Quiénes somos?</h3>
+                    <p>KeyTech Studio es un proyecto personal de Gustavo Calzada, estudiante de Ingeniería en Sistemas Computacionales en el ITSX.</p>
+                </div>
+                <img src="https://webescuela.com/wp-content/uploads/2020/08/desarrollador-web.png.webp" alt="Programación">
             </div>
         </div>
     </section>
