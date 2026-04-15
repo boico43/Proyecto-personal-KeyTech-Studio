@@ -1,8 +1,3 @@
-/**
- * KEYTECH STUDIO - MANIPULACIÓN DEL DOM
- * Alumno: Gustavo Calzada García
- */
-
 document.addEventListener("DOMContentLoaded", () => {
     
     // 1. MODO CLARO/OSCURO
@@ -31,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 3. SALUDO INICIAL
+    // 3. SALUDO INICIAL (MANIPULACIÓN DOM)
     const btnSaludo = document.getElementById("btnSaludo");
     const mensajeDinamico = document.getElementById("mensajeDinamico");
     if (btnSaludo && mensajeDinamico) {
@@ -43,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4. LÓGICA DEL BOTÓN PRESIONAME (INCISO B)
     const btnPresioname = document.getElementById("btnPresioname");
     const textoDinamico = document.getElementById("textoDinamico");
-    
     const frases = [
         "¡Sistemas es la mejor carrera!",
         "Compilado con éxito.",
@@ -55,8 +49,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnPresioname && textoDinamico) {
         btnPresioname.addEventListener("click", () => {
             const azar = Math.floor(Math.random() * frases.length);
-            // Manipulación de nodo P mediante textContent
             textoDinamico.textContent = frases[azar];
+        });
+    }
+
+    // 5. VALIDACIÓN FORMULARIO (DOM)
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById("nombre").value;
+            if (nombre) {
+                const msgBox = document.getElementById("contactMessage");
+                msgBox.innerText = `¡Gracias ${nombre}, mensaje enviado!`;
+                contactForm.reset();
+            }
         });
     }
 });
