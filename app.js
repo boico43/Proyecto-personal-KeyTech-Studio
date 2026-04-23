@@ -40,27 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. LÓGICA DEL BOTÓN PRESIONAME CON FRASES MOTIVADORAS (INCISO B)
-    const btnPresioname = document.getElementById("btnPresioname");
-    const textoDinamico = document.getElementById("textoDinamico");
-    
-    const frasesMotivadoras = [
-        "El único modo de hacer un gran trabajo es amar lo que haces. — Steve Jobs",
-        "La tecnología es mejor cuando une a la gente. — Matt Mullenweg",
-        "No te detengas hasta que estés orgulloso de tu esfuerzo.",
-        "La innovación es lo que distingue a un líder de un seguidor. — Steve Jobs",
-        "Tu capacidad de aprender es tu activo más valioso.",
-        "Recuerda utilizar ; al final de tus sentencias."
-    ];
-
-    if (btnPresioname && textoDinamico) {
-        btnPresioname.addEventListener("click", () => {
-            const azar = Math.floor(Math.random() * frasesMotivadoras.length);
-            textoDinamico.textContent = frasesMotivadoras[azar];
-        });
-    }
-
-    // 5. VALIDACIÓN DE FORMULARIO
+    // 4. VALIDACIÓN DE FORMULARIO
     const contactForm = document.getElementById("contactForm");
     const contactMessage = document.getElementById("contactMessage");
 
