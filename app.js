@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. VALIDACIÓN DE FORMULARIO
+    // 4. VALIDACIÓN DE FORMULARIO COMPLETA
     const contactForm = document.getElementById("contactForm");
     const contactMessage = document.getElementById("contactMessage");
 
