@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. FILTRADO DE PROYECTOS (INCISO A)
+    // 2. FILTRADO DE PROYECTOS
     const botonesFiltro = document.querySelectorAll(".btn-filtro");
     const cards = document.querySelectorAll(".proy-card");
 
@@ -47,12 +47,35 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contactForm) {
         contactForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            const nombre = document.getElementById("nombre").value;
-            if (nombre.trim() !== "") {
-                contactMessage.textContent = `¡Gracias ${nombre}, mensaje enviado!`;
+            
+            const campos = [
+                { id: 'nombre', errorId: 'errorNombre' },
+                { id: 'email', errorId: 'errorEmail' },
+                { id: 'mensaje', errorId: 'errorMensaje' }
+            ];
+
+            let formularioValido = true;
+
+            campos.forEach(campo => {
+                const input = document.getElementById(campo.id);
+                const errorSpan = document.getElementById(campo.errorId);
+                
+                if (input.value.trim() === "") {
+                    input.classList.add('error');
+                    errorSpan.classList.add('visible');
+                    formularioValido = false;
+                } else {
+                    input.classList.remove('error');
+                    errorSpan.classList.remove('visible');
+                }
+            });
+
+            if (formularioValido) {
+                const nombre = document.getElementById("nombre").value;
+                contactMessage.textContent = `¡Gracias ${nombre}, mensaje enviado con éxito!`;
                 contactForm.reset();
             } else {
-                contactMessage.textContent = "Por favor, escribe tu nombre.";
+                contactMessage.textContent = "";
             }
         });
     }
