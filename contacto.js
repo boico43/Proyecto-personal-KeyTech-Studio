@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // se muestra un mensaje personalizado con el nombre del usuario,
                 // equivalente a: echo "Gracias por contactarme, " . $_POST['nombre'];
                 if (response.ok) {
-                    contactMessage.textContent = `¡Gracias por contactarme, ${nombre}! Tu mensaje fue recibido por el servidor. [ID: ${respuestaServidor.id} | Status: ${servidorInfo.status} ${servidorInfo.statusText}]`;
+                    contactMessage.textContent = `¡Gracias por contactarme, ${nombre}! Tu mensaje fue recibido. Nos comunicaremos contigo lo antes posible.`;
                     contactMessage.style.color = "var(--primary)";
                     contactForm.reset();
                 } else {
