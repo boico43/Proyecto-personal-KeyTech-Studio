@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Se realiza una petición HTTP con método POST hacia el servidor.
                 // El cuerpo de la petición contiene los datos del formulario en formato JSON,
                 // equivalente a cuando PHP recibe datos mediante $_POST.
-                const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+                const response = await fetch("https://keytech-studio.duckdns.org/api/mensajes", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
